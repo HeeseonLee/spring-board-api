@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/board")
 @RequiredArgsConstructor
 public class BoardController {
-    private final BoardService service; //추가2
+    private final BoardService service;
     @GetMapping("/list")
     public String list(Model model) { // 테스트
 

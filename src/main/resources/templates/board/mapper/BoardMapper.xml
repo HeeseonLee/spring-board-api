@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.springboard.board.mapper.BoardMapper">
+
+    <select id="selectBoardListCount" resultType="int">
+    SELECT count(ORDERNO) AS cnt FROM TBLBOARD
+    </select>
+
+    <select id="selectBoardList" resultType="com.study.springboard.board.vo.BoardVo">
+        SELECT
+            ORDERNO,
+            TITLE,
+            CONTENT
+        FROM TBLBOARD //  게시글 리스트 반환
+    </select>
+</mapper>

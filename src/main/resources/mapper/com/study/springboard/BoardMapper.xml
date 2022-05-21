@@ -9,9 +9,11 @@
 
     <select id="selectBoardList" resultType="com.study.springboard.board.vo.BoardVo">
         SELECT
-            ORDERNO,
-            TITLE,
-            CONTENT
-        FROM TBLBOARD //  게시글 리스트 반환
+            A.ORDERNO,
+            A.TITLE,
+            A.CONTENT,
+            B.USERNM AS NAME
+        FROM TBLBOARD A, TBLUSERINFO B
+        WHERE A.USERID = B.USERID
     </select>
 </mapper>

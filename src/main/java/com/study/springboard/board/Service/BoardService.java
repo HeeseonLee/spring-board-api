@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.study.springboard.util.MaskingUtil;
 import java.util.List;
 
 @Service
@@ -19,6 +20,11 @@ public class BoardService {
     }
 
     public List<BoardVo> selectBoardList() {
-        return boardMapper.selectBoardList(); // 게시글 리스트 반환
+        List<BoardVo> list = boardMapper.selectBoardList();
+        for (BoardVo vo : list) {
+            String nm = MaskingUtil.maskingName(vo.getName());
+            vo.setName(nm);
+        }
+        return list;// 게시글 리스트 반환
     }
 }
